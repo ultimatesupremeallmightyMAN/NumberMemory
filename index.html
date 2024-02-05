@@ -15,9 +15,18 @@
 </body>
 <style>
  body{background-color: blue;}
+
 </style>
 <script>
+let tallrekke = [];
+    let brukertallrekke = [];
+    let level = 1;
 
+    function startGame() {
+      document.getElementById('start-button').style.display = 'none'; //Fjerner start knappen når vi starter spillet.
+      generateSequence(); //vi skal lage en funksjon
+      playSequence(); //her også lage en funksjon
+    }
 
 </script>
 </html>
