@@ -1,3 +1,21 @@
 
  body{background-color: #00b4d8;}
-  /*en av dere fiks style :) */
+
+ h1{ font-size: 75px;
+    text-align: center;
+     margin-top: 6%;}
+.info{
+        font-size: 35px;
+        text-align: center;
+         margin-top: 3%;
+    
+     }
+ 
+ button{
+ width: 150px; 
+ height: 50px;
+ padding: 10px 20px;
+ font-size: 15px;
+ 
+ } 
+  /*jeg caller dibs på å kokke :) */
