@@ -1,21 +1,30 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
 
- body{background-color: #00b4d8;}
-
- h1{ font-size: 75px;
+  .container {
     text-align: center;
-     margin-top: 6%;}
-.info{
-        font-size: 35px;
-        text-align: center;
-         margin-top: 3%;
-    
-     }
- 
- button{
- width: 150px; 
- height: 50px;
- padding: 10px 20px;
- font-size: 15px;
- 
- } 
-  /*jeg caller dibs på å kokke :) */
+  }
+
+  #game-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #number-display {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  #start-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
