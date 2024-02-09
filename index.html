@@ -7,11 +7,12 @@
   <title>number memory</title>
 </head>
 <link rel="stylesheet" href="styles.css">
+<h1>head?!?!</h1>
 <body>
   <div class="innhold">
     <div id="game-innhold">
-      <div id="tall-display">Klar?</div>
-      <button id="start-button" onclick="startSpill()">Start</button>
+      <div id="tall-display">se hvor mange tall du kan huske!</div>
+      <button id="start-knapp" onclick="startSpill()">Start</button>
     </div>
   </div>
   <script>
@@ -20,7 +21,7 @@
     let level = 1;
 
     function startSpill() {
-      document.getElementById('start-button').style.display = 'none';
+      document.getElementById('start-knapp').style.display = 'none';
       genererSekvens();
       spillSekvens();
     }
@@ -73,7 +74,7 @@
 
     function avslutt() {
       oppdaterDisplay(`Spill over! Du kom til level ${level - 1}`);
-      document.getElementById('start-button').style.display = 'block';
+      document.getElementById('start-knapp').style.display = 'block';
       level = 1;
     }
 
