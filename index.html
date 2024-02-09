@@ -9,7 +9,7 @@
     <h1>Number memory</h1>
     <div class="info">
         <div id="spillet">
-          <div id="number-display">Ready?</div>
+          <div id="tall">Ready?</div>
           <button id="start-knapp" onclick="startGame()">Start</button>
         </div>
       </div>
@@ -21,11 +21,27 @@ let tallrekke = [];
     let level = 1;
 
     function startGame() {
-      document.getElementById('start-knapp').style.display = 'none'; //Fjerner start knappen når vi starter spillet.
-      sekvensgenerator(); //vi skal lage en funksjon
-      spillavsekvens(); //her også lage en funksjon
+      document.getElementById('start-knapp').style.display = 'none';
+      level = 1;
+      nextRound();
     }
-function sekvensgenerator(){}
-function spillavsekvens(){}
+    function nextRound(){
+      sekvensgenerator();
+      spillavsekvens();
+    }
+
+function sekvensgenerator(){
+  tallrekke = []; 
+  for (let i = 0; i < level; i++) {
+    tallrekke.push(Math.floor(Math.random() * 10)); 
+  }}
+
+function spillavsekvens(){
+  let display = document.getElementById('tall');
+  display.textContent=tallrekke.join(', ');
+
+
+  
+}
 </script>
 </html>
