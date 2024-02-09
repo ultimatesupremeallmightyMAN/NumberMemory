@@ -7,24 +7,26 @@
   <title>number memory</title>
 </head>
 <link rel="stylesheet" href="styles.css">
-<h1>head?!?!</h1>
+<h1>Nummer memory</h1>
 <body>
   <div class="innhold">
     <div id="game-innhold">
       <div id="tall-display">se hvor mange tall du kan huske!</div>
-      <button id="start-knapp" onclick="startSpill()">Start</button>
+      <button id="start-knapp" onclick="startSpill()">Start</button> 
+      <!--knapp for å starte spill funksjonen-->
     </div>
   </div>
   <script>
-    let sekvens = [];
-    let brukerSekvens = [];
-    let level = 1;
+    let sekvens = [];/*definerer sekvens*/
+    let brukerSekvens = [];/*definerer bruker sekvensen*/
+    let level = 1;/* definerer levelet/vanskelighesgraden du er på*/
 
     function startSpill() {
       document.getElementById('start-knapp').style.display = 'none';
       genererSekvens();
       spillSekvens();
     }
+    /* funksjonen startspill, den fjerner startknappen og starter spillet*/
 
     function genererSekvens() {
       sekvens = [];
@@ -32,6 +34,7 @@
         sekvens.push(Math.floor(Math.random() * 10));
       }
     }
+    /*øker level og er ansvarlig for de tilfeldige tallene man får */
 
     function spillSekvens() {
       oppdaterDisplay(sekvens.join(''));
@@ -40,21 +43,30 @@
         oppdaterBrukerInndata();
       }, 2000);
     }
+    /* fikser array slik at det ikke er komma mellom og 
+    endrer displayet etter en gitt tid*/
 
     function oppdaterBrukerInndata() {
       brukerSekvens = [];
       oppdaterDisplay('Din tur, trykk tastene!');
       document.addEventListener('keydown', tastetrykk);
     }
+    /* registrerer brukerdata /array */
 
-    function tastetrykk(event) {
-      const siffer = parseInt(event.key);
+    function tastetrykk(event) { /* funksjon for å finne når noe blir trykket, 
+      i dette tilfelle tall fordi !isNaN (is not a number) */
+      const siffer = parseInt(event.key);/* sjekker om tastetrykket er et 
+      tall og hvis ikke så sender koden på linje 52 not a number og dermet 
+      vil ikke clicket telles*/
       if (!isNaN(siffer)) {
-        brukerSekvens.push(siffer);
+        brukerSekvens.push(siffer);/* hvis det er et number så skal det 
+        dyttes inn i arrayen*/
         oppdaterDisplay(brukerSekvens.join(''));
         if (brukerSekvens.length === sekvens.length) {
           sjekkBrukerData();
-        }
+        }/* sjekker om brukersekvensen er like lang som s
+        ekvensen også etter det så sjekker den om tallene stemme, 
+        og kjører sjekkbrukerdata*/
       }
     }
 
@@ -65,7 +77,8 @@
         oppdaterDisplay(`Level ${level} fullført!`);
         setTimeout(() => {
           genererSekvens();
-          spillSekvens();
+          spillSekvens();/* hvis tallene i brukersekvens er like de i sekvens 
+          vil du gå til neste level, hvis ikke så avslutter d spill*/
         }, 2000);
       } else {
         avslutt();
@@ -76,11 +89,11 @@
       oppdaterDisplay(`Spill over! Du kom til level ${level - 1}`);
       document.getElementById('start-knapp').style.display = 'block';
       level = 1;
-    }
+    }/* avslutter spillet og setter level tibake til 1;*/
 
     function oppdaterDisplay(tekst) {
       document.getElementById('tall-display').textContent = tekst;
-    }
+    } /* opdaterer displayet på nettside.*/
   </script>
 </body>
 </html>
