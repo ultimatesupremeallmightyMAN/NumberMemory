@@ -91,6 +91,11 @@
       level = 1;
     }/* avslutter spillet og setter level tibake til 1;*/
 
+    function restartSpill() {
+      level = 1; /* restarter spill */
+      startSpill();
+    }
+
     function oppdaterDisplay(tekst) {
       document.getElementById('tall-display').textContent = tekst;
     } /* opdaterer displayet på nettside.*/
