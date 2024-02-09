@@ -10,7 +10,7 @@
     <div class="info">
         <div id="spillet">
           <div id="tall">Ready?</div>
-          <button id="start-knapp" onclick="startGame()">Start</button>
+          <button id="start-knapp" onclick="start()">Start</button>
         </div>
       </div>
 </body>
@@ -19,16 +19,23 @@
 let tallrekke = [];
     let brukertallrekke = [];
     let level = 1;
+    let timer;
 
-    function startGame() {
+    function start() {
       document.getElementById('start-knapp').style.display = 'none';
       level = 1;
-      nextRound();
+      neste();
     }
-    function nextRound(){
+    function neste() {
       sekvensgenerator();
       spillavsekvens();
-    }
+      setTimeout(() => {
+        brukertallrekke= [];
+        let gjett = prompt("Skriv inn tallrekken.");
+        sjekkomriktig(gjett);
+    }, 10000); /*viser tallet i 10 sec?*/ 
+  }
+  
 
 function sekvensgenerator(){
   tallrekke = []; 
@@ -38,10 +45,24 @@ function sekvensgenerator(){
 
 function spillavsekvens(){
   let display = document.getElementById('tall');
-  display.textContent=tallrekke.join(', ');
-
-
-  
+  display.textContent=tallrekke.join('');  
 }
+function sjekkomriktig(gjett){
+ if(gjett===tallrekke.join('')){
+ level++;
+ updateDisplay(`Level ${level - 1} Complete!`);
+ setTimeout(next, 2000);
+}
+else{ endspill();}
+
+function endspill() {
+      updateDisplay(`Game Over! Du kom til ${level - 1}`);
+      document.getElementById('start-knapp').style.display = 'block';
+      level = 1;
+    }
+}
+function updateDisplay(text) {
+      document.getElementById('number-display').textContent = text;
+    }
 </script>
 </html>
